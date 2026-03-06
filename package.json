@@ -1,0 +1,56 @@
+{
+  "name": "@embra/template",
+  "version": "0.1.0",
+  "description": "Collection of common utilities.",
+  "repository": "embrajs/template",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
+    "lint:ci": "biome ci",
+    "ts-check": "tsc --noEmit",
+    "ts-watch": "tsc --noEmit -w",
+    "docs": "typedoc --options typedoc.json && biome format --write --config-path=biome.docs.json --files-ignore-unknown=true docs",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --coverage.reportsDirectory='./docs/coverage'",
+    "build": "tsup",
+    "build:min": "MINIFY=true tsup && echo '' && gzip-size dist/index.mjs dist/index.js",
+    "release": "commit-and-tag-version"
+  },
+  "keywords": [
+    "template"
+  ],
+  "maintainers": [
+    {
+      "name": "CRIMX",
+      "email": "straybugs@gmail.com",
+      "url": "https://github.com/crimx/"
+    },
+    {
+      "name": "hyrious",
+      "email": "hyrious@outlook.com",
+      "url": "https://github.com/hyrious/"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
+    "@types/node": "^25.3.5",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@wopjs/gzip-size": "^0.1.5",
+    "commit-and-tag-version": "^12.6.1",
+    "tsup": "^8.5.1",
+    "typedoc": "^0.28.16",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.4"
+  }
+}
