@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
-docs
+# LLM
+.claude/*.local.json
 
 .DS_Store
+
+docs
