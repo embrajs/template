@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-publish:
+    name: Build and Publish
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -17,10 +18,10 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js 🟢
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: lts/*
           registry-url: "https://registry.npmjs.org"
