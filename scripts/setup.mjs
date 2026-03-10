@@ -22,7 +22,10 @@ const description = argv("description") || repoName;
   pkg.name = pkgName;
   pkg.description = description;
   pkg.keywords = [];
-  pkg.repository = repo && !repo.includes("github") ? repo : `${author}/${repoName}`;
+  pkg.repository = {
+    type: "git",
+    url: `git+${repo || `https://github.com/${author}/${repoName}.git`}`,
+  };
   if (!isEmbra) {
     pkg.maintainers = void 0;
   }

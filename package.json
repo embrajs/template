@@ -2,7 +2,10 @@
   "name": "@embra/template",
   "version": "0.1.0",
   "description": "Collection of common utilities.",
-  "repository": "embrajs/template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/embrajs/template.git"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
