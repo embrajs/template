@@ -40,10 +40,10 @@ const description = argv("description") || repoName;
   readme = readme.replaceAll("{{author}}", author);
   readme = readme.replaceAll("{{repoName}}", repoName);
   readme = readme.replaceAll("{{description}}", description);
-  fs.writeFileSync("README.md", readme);
   if (isEmbra) {
     readme += "\n## License\n\nMIT @ [embrajs](https://github.com/embrajs)\n";
   }
+  fs.writeFileSync("README.md", readme);
   fs.rmSync("README.template.md");
 }
 // #endregion
