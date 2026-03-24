@@ -6,7 +6,7 @@
     "isolatedModules": true,
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noUnusedParameters": true,
