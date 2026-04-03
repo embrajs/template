@@ -7,7 +7,7 @@ A template starter repo for modern JavaScript and TypeScript development, design
 - **Biome**: Fast linter and formatter with TypeScript support.
 - **Testing Framework**: Utilizes Vitest for seamless testing and coverage reporting.
 - **Documentation Generation**: Handled by TypeDoc for creating detailed documentation.
-- **Build Process**: Uses `tsup` to bundle compact, readable code with a focus on minimizing bundle size.
+- **Build Process**: Uses `tsdown` to bundle compact, readable code with a focus on minimizing bundle size.
 - **Continuous Integration**: Includes GitHub Actions for automated CI testing, versioning and publishing.
 
 ## Install
