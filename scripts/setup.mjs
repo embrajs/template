@@ -76,6 +76,7 @@ const description = argv("description") || repoName;
 {
   const win = (bin) => (process.platform === "win32" ? `${bin}.cmd` : bin);
   cp.spawnSync(win("npm"), ["install"], { stdio: "inherit" });
+  cp.spawnSync(win("npm"), ["run", "lint:fix"], { stdio: "inherit" });
 }
 // #endregion
 
