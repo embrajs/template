@@ -4,7 +4,7 @@
 [![Build Status](https://github.com/{{author}}/{{repoName}}/actions/workflows/build.yml/badge.svg)](https://github.com/{{author}}/{{repoName}}/actions/workflows/build.yml)
 [![npm-version](https://img.shields.io/npm/v/{{pkgName}}.svg)](https://www.npmjs.com/package/{{pkgName}})
 [![Coverage Status](https://{{author}}.github.io/{{repoName}}/coverage-badges/{{pkgName}}.svg)](https://{{author}}.github.io/{{repoName}}/coverage/)
-[![minified-size](https://img.shields.io/bundlephobia/minzip/{{pkgName}})](https://bundlephobia.com/package/{{pkgName}})
+[![minified-size](https://deno.bundlejs.com/badge?q={{pkgName}}&treeshake=[*])](https://deno.bundlejs.com/?q={{pkgName}}&treeshake=[*])
 
 {{description}}
 
