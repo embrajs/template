@@ -22,5 +22,13 @@
     "wopjs",
     "yoctocolors"
   ],
-  "ignorePaths": ["**/coverage/**", "**/node_modules/**", "**/dist/**", "cspell.config.js", "CHANGELOG.md"]
+  "ignorePaths": [
+    "**/coverage/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "docs/**",
+    "cspell.config.js",
+    ".gitignore",
+    "CHANGELOG.md"
+  ]
 }
