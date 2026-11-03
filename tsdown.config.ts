@@ -7,6 +7,13 @@ export default defineConfig({
     index: "src/index.ts",
   },
   fixedExtension: true,
+  inputOptions: {
+    transform: {
+      typescript: {
+        optimizeEnums: true,
+      },
+    },
+  },
   format: ["cjs", "esm"],
   minify: Boolean(process.env.MINIFY),
   sourcemap: false,
