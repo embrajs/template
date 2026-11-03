@@ -38,8 +38,8 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ci": "vitest run --coverage --coverage.reportsDirectory='./docs/coverage'",
-    "build": "tsdown",
-    "build:min": "MINIFY=true tsdown && echo '' && gzip-size dist/index.mjs dist/index.js",
+    "build": "tsdown && echo '' && terser-mangle",
+    "build:min": "MINIFY=true tsdown && echo '' && terser-mangle --minify dist/index.mjs dist/index.cjs && echo '' && gzip-size dist/index.mjs dist/index.cjs",
     "release": "commit-and-tag-version"
   },
   "keywords": [
@@ -54,14 +54,15 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "^2.4.10",
-    "@types/node": "^25.5.0",
-    "@vitest/coverage-v8": "^4.1.2",
+    "@biomejs/biome": "^2.6.4",
+    "@embra/terser-mangle": "^0.0.3",
+    "@types/node": "^26.6.6",
+    "@vitest/coverage-v8": "^5.1.0",
     "@wopjs/gzip-size": "^0.1.5",
-    "commit-and-tag-version": "^12.7.1",
-    "tsdown": "^0.21.7",
-    "typedoc": "^0.28.18",
+    "commit-and-tag-version": "^13.3.0",
+    "tsdown": "^0.23.4",
+    "typedoc": "^0.28.20",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "vitest": "^4.0.4"
+    "vitest": "^5.1.0"
   }
 }

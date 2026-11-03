@@ -6,6 +6,7 @@ export default defineConfig({
   entry: {
     index: "src/index.ts",
   },
+  fixedExtension: true,
   format: ["cjs", "esm"],
   minify: Boolean(process.env.MINIFY),
   sourcemap: false,
