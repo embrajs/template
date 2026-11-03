@@ -38,8 +38,8 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ci": "vitest run --coverage --coverage.reportsDirectory='./docs/coverage'",
-    "build": "tsdown && echo '' && terser-mangle",
-    "build:min": "MINIFY=true tsdown && echo '' && terser-mangle --minify dist/index.mjs dist/index.cjs && echo '' && gzip-size dist/index.mjs dist/index.cjs",
+    "build": "node scripts/build.ts",
+    "build:min": "MINIFY=true node scripts/build.ts && echo '' && gzip-size dist/index.mjs dist/index.cjs",
     "release": "commit-and-tag-version"
   },
   "keywords": [
@@ -55,12 +55,12 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^2.6.4",
-    "@embra/terser-mangle": "^0.0.3",
+    "@hyrious/dts": "^0.3.8",
     "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.1.0",
     "@wopjs/gzip-size": "^0.1.5",
     "commit-and-tag-version": "^13.3.0",
-    "tsdown": "^0.23.4",
+    "esbuild": "^0.27.7",
     "typedoc": "^0.28.20",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "vitest": "^5.1.0"

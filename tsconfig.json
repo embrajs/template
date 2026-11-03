@@ -20,5 +20,5 @@
     "types": ["node"],
     "useDefineForClassFields": false
   },
-  "include": ["src", "test", "*.config.*"]
+  "include": ["src", "test", "scripts", "*.config.*"]
 }

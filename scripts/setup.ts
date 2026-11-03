@@ -68,19 +68,19 @@ const description = argv("description") || repoName;
 
 // #region Clean up
 {
-  fs.rmSync("scripts/setup.mjs");
+  fs.rmSync("scripts/setup.ts");
 }
 // #endregion
 
 // #region Install dependencies
 {
-  const win = (bin) => (process.platform === "win32" ? `${bin}.cmd` : bin);
+  const win = (bin: string) => (process.platform === "win32" ? `${bin}.cmd` : bin);
   cp.spawnSync(win("npm"), ["install"], { stdio: "inherit" });
   cp.spawnSync(win("npm"), ["run", "lint:fix"], { stdio: "inherit" });
 }
 // #endregion
 
-function argv(key) {
+function argv(key: string): string {
   const index = args.indexOf(`--${key}`);
   if (index > -1) {
     return args[index + 1] || "";
@@ -94,7 +94,7 @@ function argv(key) {
   return "";
 }
 
-function exec(command) {
+function exec(command: string): string {
   try {
     return String(cp.execSync(command));
   } catch {
