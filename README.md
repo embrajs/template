@@ -7,7 +7,7 @@ A template starter repo for modern JavaScript and TypeScript development, design
 - **Biome**: Fast linter and formatter with TypeScript support.
 - **Testing Framework**: Utilizes Vitest for seamless testing and coverage reporting.
 - **Documentation Generation**: Handled by TypeDoc for creating detailed documentation.
-- **Build Process**: Uses esbuild for JavaScript bundles and `@hyrious/dts` for bundled type declarations.
+- **Build Process**: Uses esbuild for ESM bundles (with `__DEV__` dev/prod builds) and `@hyrious/dts` for bundled type declarations.
 - **Continuous Integration**: Includes GitHub Actions for automated CI testing, versioning and publishing.
 
 ## Install
@@ -24,6 +24,27 @@ You can also set the info manually by running:
 
 ```console
 node scripts/setup.ts --name "package-name" --description "package description" --repo "https://github.com/embrajs/template.git"
+```
+
+## Development Mode (`__DEV__`)
+
+Use `__DEV__` to guard development-only checks or diagnostics. Dead `__DEV__` branches are automatically stripped from production builds:
+
+```ts
+if (__DEV__) {
+  console.warn("dev-only check");
+}
+```
+
+In tests, `__DEV__` defaults to `true`. Use `setDevMode` to test production behavior (it resets to `true` after each test):
+
+```ts
+import { setDevMode } from "../test/setup";
+
+it("runs in production mode", () => {
+  setDevMode(false);
+  // __DEV__ is false here
+});
 ```
 
 ## License

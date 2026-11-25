@@ -7,19 +7,11 @@
     "url": "git+https://github.com/embrajs/template.git"
   },
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      },
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      }
+      "types": "./dist/index.d.mts",
+      "development": "./dist/index.dev.mjs",
+      "default": "./dist/index.mjs"
     }
   },
   "sideEffects": false,
@@ -39,7 +31,8 @@
     "test:coverage": "vitest run --coverage",
     "test:ci": "vitest run --coverage --coverage.reportsDirectory='./docs/coverage'",
     "build": "node scripts/build.ts",
-    "build:min": "NODE_ENV=production MINIFY=true node scripts/build.ts && echo '' && gzip-size dist/index.mjs dist/index.cjs",
+    "build:min": "MINIFY=true node scripts/build.ts && echo '' && gzip-size dist/index.mjs",
+    "check": "npm run lint:fix && npm run ts-check && npm run test:coverage && npm run build",
     "release": "commit-and-tag-version"
   },
   "keywords": [
@@ -55,6 +48,7 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^2.6.4",
+    "@embra/esbuild-plugin-prune-branches": "^0.1.0",
     "@hyrious/dts": "^0.3.8",
     "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.1.0",
