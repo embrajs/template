@@ -81,8 +81,8 @@
             <li><strong>Testing Framework</strong>: Utilizes Vitest for seamless testing and coverage reporting.</li>
             <li><strong>Documentation Generation</strong>: Handled by TypeDoc for creating detailed documentation.</li>
             <li>
-              <strong>Build Process</strong>: Uses esbuild for JavaScript bundles and <code>@hyrious/dts</code> for
-              bundled type declarations.
+              <strong>Build Process</strong>: Uses esbuild for ESM bundles (with <code>__DEV__</code> dev/prod builds)
+              and <code>@hyrious/dts</code> for bundled type declarations.
             </li>
             <li>
               <strong>Continuous Integration</strong>: Includes GitHub Actions for automated CI testing, versioning and
@@ -105,6 +105,30 @@
           <p>You can also set the info manually by running:</p>
           <pre
           ><code class="console"><span class="hl-0">node scripts/setup.ts --name &quot;package-name&quot; --description &quot;package description&quot; --repo &quot;https://github.com/embrajs/template.git&quot;</span>
+</code><button type="button">Copy</button></pre>
+
+          <h2 id="development-mode-" class="tsd-anchor-link">
+            Development Mode (<code>__DEV__</code>)<a
+              href="#development-mode-"
+              aria-label="Permalink"
+              class="tsd-anchor-icon"
+              ><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a
+            >
+          </h2>
+          <p>
+            Use <code>__DEV__</code> to guard development-only checks or diagnostics. Dead <code>__DEV__</code> branches
+            are automatically stripped from production builds:
+          </p>
+          <pre
+          ><code class="ts"><span class="hl-1">if</span><span class="hl-0"> (</span><span class="hl-2">__DEV__</span><span class="hl-0">) {</span><br/><span class="hl-0">  </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-3">warn</span><span class="hl-0">(</span><span class="hl-4">&quot;dev-only check&quot;</span><span class="hl-0">);</span><br/><span class="hl-0">}</span>
+</code><button type="button">Copy</button></pre>
+
+          <p>
+            In tests, <code>__DEV__</code> defaults to <code>true</code>. Use <code>setDevMode</code> to test production
+            behavior (it resets to <code>true</code> after each test):
+          </p>
+          <pre
+          ><code class="ts"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">setDevMode</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-4">&quot;../test/setup&quot;</span><span class="hl-0">;</span><br/><br/><span class="hl-3">it</span><span class="hl-0">(</span><span class="hl-4">&quot;runs in production mode&quot;</span><span class="hl-0">, () </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-3">setDevMode</span><span class="hl-0">(</span><span class="hl-5">false</span><span class="hl-0">);</span><br/><span class="hl-0">  </span><span class="hl-6">// __DEV__ is false here</span><br/><span class="hl-0">});</span>
 </code><button type="button">Copy</button></pre>
 
           <h2 id="license" class="tsd-anchor-link">
@@ -149,6 +173,11 @@
               <ul>
                 <li>
                   <a href="#install"><span>Install</span></a>
+                </li>
+                <li>
+                  <a href="#development-mode-"
+                    ><span>Development <wbr>Mode ()</span></a
+                  >
                 </li>
                 <li>
                   <a href="#license"><span>License</span></a>
